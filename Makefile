@@ -1,18 +1,24 @@
-SRC = ft_isalpha.c
+SRC = ./src/ft_isalpha.c \
+	./src/ft_isdigit.c \
+	./src/ft_isalnum.c \
+	./src/ft_isascii.c \
+	./src/ft_isprint.c \
+	./src/ft_strlen.c \
+	./src/ft_memset.c \
+	./src/ft_bzero.c
 NAME = libft.a
-FLAGS = -Wall -Wextra -Werror -o
-AR = ar rcs
-OBJ = $(SRC: .c = .o)
-
-all: $(NAME)
+CFLAGS = -Wall -Wextra -Werror
+OBJ = $(SRC:.c=.o)
 
 
-$(NAME) : $(OBJ)
-	ar -rc $(NAME) $(OBJ)
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)
+
 clean:
-	/bin/rm -f $(OBJ)
+	rm -rf $(OBJ)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	rm -rf $(NAME)
 
-re: fclean all
+re: fclean $(NAME)
+

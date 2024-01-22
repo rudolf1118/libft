@@ -1,8 +1,8 @@
 #include "../libft.h"
 
-int ft_isdigit(int arg)
+int ft_isascii(int arg)
 {
-    if (arg >= '0' && arg <= '9')
+    if(arg>=0 && arg <= 127)
         return (1);
     return (0);
 }

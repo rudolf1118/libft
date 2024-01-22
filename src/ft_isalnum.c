@@ -1,9 +1,8 @@
 #include "../libft.h"
 
-int isalnum(int argument)
+int ft_isalnum(int arg)
 {
-    if ((argument >= '0' && argument <= '9') || (argument >= 'a' && argument <= 'z') || (argument >= 'A' && argument <= 'Z'))  
+    if((arg >= 'a' && arg <= 'z') || (arg >= 'A' && arg <= 'Z') || (arg >= '0' && arg <= '9') )
         return (1);
-    else 
-        return (0); 
+    return (0);
 }

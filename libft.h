@@ -1,20 +1,17 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rharutyu <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 16:53:24 by rharutyu          #+#    #+#             */
-/*   Updated: 2024/01/22 16:53:40 by rharutyu         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+//
+// Created by Rudolf Harutyunyan on 23.01.24.
+//
 
 #ifndef LIBFT_H
-# define LIBFT_H
-# include <stdio.h>
+#define LIBFT_H
+# include <stdlib.h>
+int ft_isalpha(int arg);
+int ft_isdigit(int arg);
+int ft_ialnum(int arg);
+int ft_isascii(int arg);
+int ft_isprint(int arg);
+size_t ft_strlen(const char *arg);
+void *ft_memset (void *ptr, int value, size_t num);
+void ft_bzero(void *str, size_t num);
 
-int	ft_isalpha(int st);
-int	ft_isdigit(int st);
-int ft_isalnum(int argument);
-#endif
+#endif //LIBFT_LIBFT_H
