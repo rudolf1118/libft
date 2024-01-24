@@ -5,7 +5,10 @@ SRC = ./src/ft_isalpha.c \
 	./src/ft_isprint.c \
 	./src/ft_strlen.c \
 	./src/ft_memset.c \
-	./src/ft_bzero.c
+	./src/ft_bzero.c \
+	./src/ft_memcpy.c \
+	./src/ft_memmove.c \
+	./src/ft_strlcpy.c
 NAME = libft.a
 CFLAGS = -Wall -Wextra -Werror
 OBJ = $(SRC:.c=.o)
