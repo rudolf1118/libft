@@ -14,7 +14,9 @@ SRC = ./src/ft_isalpha.c \
 	./src/ft_tolower.c \
 	./src/ft_strchr.c \
 	./src/ft_strrchr.c \
-	./src/ft_strncmp.c
+	./src/ft_strncmp.c \
+	./src/ft_memchr.c \
+	./src/ft_memcmp.c
 NAME = libft.a
 CFLAGS = -Wall -Wextra -Werror
 OBJ = $(SRC:.c=.o)
