@@ -22,7 +22,8 @@ SRC = ./src/ft_isalpha.c \
 	./src/ft_calloc.c \
 	./src/ft_strdup.c \
 	./src/ft_substr.c \
-	./src/ft_strjoin.c
+	./src/ft_strjoin.c \
+	./src/ft_strtrim.c
 NAME = libft.a
 CFLAGS = -Wall -Wextra -Werror
 OBJ = $(SRC:.c=.o)
