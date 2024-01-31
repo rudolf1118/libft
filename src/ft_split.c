@@ -1,54 +1,83 @@
 #include "../libft.h"
 
-/*static int counter(char const *str, char c, int counter, int index)
+static int mallocer(char **result, size_t i, size_t len)
 {
-    while (str[index])
+    result[i] = (char *)malloc(sizeof(char) * len + 1);
+    if (!result[i])
     {
-        if(str[index] == c)
-            counter++;
-        index++;
+        while (i >= 0)
+        {
+            free(result[i--]);
+        }
+        free(result);
+        return (1);
     }
-    return (counter);
+    return (0);
 }
-static int starter(char const *str, char c, int counter, int index)
+
+static int fill(char **result, char const *s, char c)
 {
     int i;
-    int start;
-    while (str[i])
+    size_t len;
+
+    i = 0;
+    while (*s)
     {
-        if (str[i] != c && (str[i - 1] == c || i == 0))
+        len = 0;
+        while (*s == c && *s)
+            ++s;
+        while (*s != c && *s)
         {
-            start = i;
+            ++len;
+            ++s;
+        }
+        if (len)
+        {
+            if(mallocer(result, i, len + 1))
+                return (1);
+            ft_strlcpy(result[i],(s - len), len + 1);
         }
         i++;
     }
+    return (0);
 }
 
-static int counterofindex(char const *str, char c, int counter, int index)
+static size_t count_tokens(char const *s, char c)
 {
-    int i;
-    int end;
+    int in_str;
+    int count;
 
-    
-    while (str[index])
-    {
-        while(str[index] != c)
+    count = 0;
+    while (*s) {
+        in_str = 0;
+        while (*s == c && *s)
+            ++s;
+        while (*s != c && *s)
         {
-            end = index;
-            index++;
+            if (!in_str)
+            {
+                ++count;
+                in_str = 1;
+            }
+            ++s;
         }
-        index++;
     }
-    return (i);
+    return (count);
 }
-*/
+
 char **ft_split(char const *s, char c)
 {
-    int index;
-    int counter;
+    size_t tokens;
     char **result;
-    result = (char **)malloc(sizeof(c) *( 2 + ft_strlen(s)));
-    counter = 1;
-    index = 0;
+
+    if (!s)
+        return (NULL);
+    tokens = count_tokens(s, c);
+    result = (char **)malloc(sizeof(char *) * (tokens + 1));
+    if (!result)
+        return (NULL);
+    result[tokens] = NULL;
+   if (fill (result, s, c))
+       return (NULL);
     return (result);
 }
