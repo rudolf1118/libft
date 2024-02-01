@@ -25,7 +25,13 @@ SRC = ./src/ft_isalpha.c \
 	./src/ft_strjoin.c \
 	./src/ft_strtrim.c \
 	./src/ft_split.c \
-	./src/ft_itoa.c
+	./src/ft_itoa.c \
+	./src/ft_strmapi.c \
+	./src/ft_striteri.c \
+	./src/ft_putchar_fd.c \
+	./src/ft_putstr_fd.c \
+	./src/ft_putendl_fd.c \
+	./src/ft_putnbr_fd.c
 NAME = libft.a
 CFLAGS = -Wall -Wextra -Werror
 OBJ = $(SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: rharutyu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:26:28 by rharutyu          #+#    #+#             */
-/*   Updated: 2024/01/26 13:27:37 by rharutyu         ###   ########.fr       */
+/*   Updated: 2024/02/01 13:47:41 by rharutyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	ft_bzero(void *str, size_t num)
 	size_t	i;
 
 	string = str;
-    if (!str)
-        return ;
+	if (!str)
+		return ;
 	i = 0;
 	while (i < num)
 	{
