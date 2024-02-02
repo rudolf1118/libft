@@ -35,12 +35,16 @@ char	*ft_strtrim(char const *s1, char const *set) // "helloarmenhello"
 
 	i = 0;
 	start = 0;
+	if (!s1)
+		return (NULL);
 	while (s1[start] && partofstr(s1[start], set))
 		start++;
 	end = ft_strlen(s1) - 1;
 	while (end > start && partofstr(s1[end], set))
 		end--;
 	result = (char *)malloc(sizeof(char) * (end - start + 2));
+	if (!result)
+		return (NULL);
 	while (start <= end)
 	{
 		result[i++] = s1[start++];

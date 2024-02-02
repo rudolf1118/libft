@@ -18,8 +18,6 @@ void	ft_bzero(void *str, size_t num)
 	size_t	i;
 
 	string = str;
-	if (!str)
-		return ;
 	i = 0;
 	while (i < num)
 	{

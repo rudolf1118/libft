@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rharutyu <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/02/02 18:01:30 by rharutyu          #+#    #+#              #
+#    Updated: 2024/02/02 18:01:31 by rharutyu         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 SRC = ./src/ft_isalpha.c \
 	./src/ft_isdigit.c \
 	./src/ft_isalnum.c \
@@ -32,19 +44,34 @@ SRC = ./src/ft_isalpha.c \
 	./src/ft_putstr_fd.c \
 	./src/ft_putendl_fd.c \
 	./src/ft_putnbr_fd.c
+
+BONUS = ./bonus/ft_lstnew.c \
+		./bonus/ft_lstadd_front.c \
+		./bonus/ft_lstsize.c \
+		./bonus/ft_lstlast.c \
+		./bonus/ft_lstadd_back.c \
+		./bonus/ft_lstdelone.c \
+		./bonus/ft_lstclear.c \
+		./bonus/ft_lstiter.c \
+		./bonus/ft_lstmap.c
 NAME = libft.a
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 OBJ = $(SRC:.c=.o)
-
+OBJBONUS=$(BONUS:.c=.o)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 clean:
-	rm -rf $(OBJ)
+	rm -rf $(OBJ) $(OBJBONUS)
 
 fclean: clean
 	rm -rf $(NAME)
 
 re: fclean $(NAME)
 
+bonus: $(BONUS) $(OBJBONUS)
+	ar rcs $(NAME) $(BONUS) $(OBJBONUS)
+
+.PHONY : clean fclean re bonus 

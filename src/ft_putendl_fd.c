@@ -6,7 +6,7 @@
 /*   By: rharutyu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:12:40 by rharutyu          #+#    #+#             */
-/*   Updated: 2024/02/01 16:12:41 by rharutyu         ###   ########.fr       */
+/*   Updated: 2024/02/02 17:57:37 by rharutyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putendl_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return ;
 	while (s[i])
 	{
 		write(fd, &s[i], 1);

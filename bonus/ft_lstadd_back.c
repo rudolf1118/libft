@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rharutyu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 13:23:05 by rharutyu          #+#    #+#             */
-/*   Updated: 2024/02/01 13:23:06 by rharutyu         ###   ########.fr       */
+/*   Created: 2024/02/02 17:58:39 by rharutyu          #+#    #+#             */
+/*   Updated: 2024/02/02 17:58:40 by rharutyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int		i;
-	char	*str;
-	int		j;
+	t_list	*links;
 
-	j = 0;
-	i = start;
-	if (!s)
-		return (NULL);
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (NULL);
-	while (s[i] && j < (int)len && !(start >= (unsigned int)ft_strlen(s)))
+	links = *lst;
+	if (!new)
+		return ;
+	if (!*lst)
+		*lst = new;
+	else
 	{
-		str[j] = s[i];
-		i++;
-		j++;
+		while (links->next != NULL)
+			links = links->next;
+		links->next = new;
 	}
-	str[j] = '\0';
-	return (str);
 }

@@ -17,6 +17,8 @@ static int	count(int num)
 	int	counter;
 
 	counter = 0;
+	if (num == 0)
+		return (1);
 	while (num != 0)
 	{
 		num /= 10;
