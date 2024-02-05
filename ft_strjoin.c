@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rharutyu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 13:43:45 by rharutyu          #+#    #+#             */
-/*   Updated: 2024/02/02 17:56:25 by rharutyu         ###   ########.fr       */
+/*   Created: 2024/02/05 18:31:25 by rharutyu          #+#    #+#             */
+/*   Updated: 2024/02/05 18:31:36 by rharutyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,35 @@
 
 static size_t	ft_strlen_safe(char const *s)
 {
-	size_t	len;
-
 	if (s == NULL)
-		len = 0;
-	else
-		return (ft_strlen(s));
-	return (len);
+		return (0);
+	return (ft_strlen(s));
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*joinstr;
-	int		i;
-	int		index;
+	size_t	len1;
+	size_t	len2;
+	char	*result;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	index = 0;
-	joinstr = (char *)malloc(sizeof(char) * (ft_strlen_safe(s1)
-				+ ft_strlen_safe(s2) + 1));
-	if (!joinstr)
+	len1 = ft_strlen_safe(s1);
+	len2 = ft_strlen_safe(s2);
+	result = (char *)malloc(sizeof(char) * (len1 + len2));
+	if (!result)
 		return (NULL);
-	while (i < (int)ft_strlen(s1))
+	while (i < len1 && s1 != NULL)
 	{
-		joinstr[index] = s1[i];
+		result[i] = s1[i];
 		i++;
-		index++;
 	}
-	i = 0;
-	while (i < (int)ft_strlen(s2))
+	j = 0;
+	while (j < len2 && s2 != NULL)
 	{
-		joinstr[index] = s2[i];
-		i++;
-		index++;
+		result[i++] = s2[j++];
 	}
-	joinstr[index] = '\0';
-	return (joinstr);
+	result[i] = '\0';
+	return (result);
 }

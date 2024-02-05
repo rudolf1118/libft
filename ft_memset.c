@@ -21,7 +21,7 @@ void	*ft_memset(void *ptr, int value, size_t num)
 	meme = ptr;
 	while (i < num)
 	{
-		meme[i] = (char) value;
+		meme[i] = (unsigned char)value;
 		i++;
 	}
 	return (meme);
