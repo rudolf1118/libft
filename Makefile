@@ -1,4 +1,5 @@
-# **************************************************************************** #
+#
+#**************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -6,7 +7,7 @@
 #    By: rharutyu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 18:01:30 by rharutyu          #+#    #+#              #
-#    Updated: 2024/02/02 18:01:31 by rharutyu         ###   ########.fr        #
+#    Updated: 2024/02/07 15:34:15 by rharutyu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,13 +56,20 @@ BONUS = ./ft_lstnew.c \
 		./ft_lstiter.c \
 		./ft_lstmap.c
 NAME = libft.a
+HEADER = libft.h
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+INCLUDE = -I
 OBJ = $(SRC:.c=.o)
 OBJBONUS=$(BONUS:.c=.o)
 
+all: $(NAME)
+
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
+
+%.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) $(INCLUDE) $(HEADER) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ) $(OBJBONUS)
@@ -71,7 +79,7 @@ fclean: clean
 
 re: fclean $(NAME)
 
-bonus: $(BONUS) $(OBJBONUS)
+bonus: $(BONUS) $(OBJ) $(OBJBONUS)
 	ar rcs $(NAME) $(BONUS) $(OBJBONUS)
 
-.PHONY : clean fclean re bonus 
+.PHONY : all clean fclean re bonus

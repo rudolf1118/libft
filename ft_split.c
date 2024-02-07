@@ -6,7 +6,7 @@
 /*   By: rharutyu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:45:43 by rharutyu          #+#    #+#             */
-/*   Updated: 2024/02/01 13:45:55 by rharutyu         ###   ########.fr       */
+/*   Updated: 2024/02/07 15:59:57 by rharutyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	mallocer(char **result, size_t i, size_t len)
 {
-	result[i] = (char *)malloc(sizeof(char) * len + 1);
+	result[i] = (char *)malloc(sizeof(char) * (len + 1));
 	if (!result[i])
 	{
 		while (i >= 0)
